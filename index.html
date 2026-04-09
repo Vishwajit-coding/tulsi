@@ -6,18 +6,20 @@
 <title>I'm Sorry 💛</title>
 
 <style>
-    body {
-        margin: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
-        background-image: url("571025770_18103724812722283_9201190370208893450_n..jpg");
+    background: rgba(0,0,0,0.4);
+
+    z-index: 0; 
     }
 
-    /* overlay for better readability */
+
     .overlay {
         position: absolute;
         width: 100%;
@@ -27,19 +29,14 @@
 
    .card {
     position: relative;
-    width: 90%;
-    max-width: 350px;
+    z-index: 2; /* above overlay */
 
-    background: rgba(255, 255, 255, 0.15); /* transparent */
-    backdrop-filter: blur(15px);          /* glass effect */
-    -webkit-backdrop-filter: blur(15px);  /* iPhone support */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 
-    padding: 25px;
     border-radius: 25px;
-    text-align: center;
-
-    border: 1px solid rgba(255,255,255,0.3);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    padding: 25px;
     }
 
     h1 {
