@@ -6,13 +6,6 @@
 <title>I'm Sorry 💛</title>
 
 <style>
-    body::before {
-    content: "";
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    }
     body {
     margin: 0;
     height: 100vh;
@@ -25,82 +18,72 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    }
+}
 
+/* REMOVE overlay + body::before COMPLETELY */
 
-    .overlay {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.4);
-    }
+.card {
+    width: 90%;
+    max-width: 340px;
 
-   .card {
-        background: 
-        linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)),
-        url('photo.jpg');
+    padding: 20px;
+    border-radius: 25px;
 
-        background-size: cover;
-        background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 
-        border-radius: 25px;
-        padding: 25px;
-    }
-    .card-img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
 
-        border-radius: 20px;
-        margin-bottom: 10px;
-        filter: brightness(0.8);
-    }
+.card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 15px;
+}
 
-    h1 {
-        font-size: 22px;
-        color: #222;
-    }
+h1 {
+    color: white;
+    font-size: 22px;
+    margin: 0;
+}
 
-    p {
-        font-size: 20px;
-        color: black;
-    }
+p {
+    color: #ddd;
+    font-size: 16px;
+    margin: 0;
+}
 
-    .buttons {
-        display: flex;
-        justify-content: center;
-        gap: 12px;
-        margin-top: 10px;
-        position: relative;
-    }
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
 
-    button {
-        width: 120px;
-        padding: 12px;
-        border-radius: 30px;
-        border: none;
-        font-size: 15px;
-    }
+button {
+    width: 120px;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+}
 
-    .yes {
-        background: #28a745;
-        color: white;
-    }
+.yes {
+    background: #28a745;
+}
 
-    .no {
-        background: #dc3545;
-        color: white;
-        position: absolute;
-    }
-
-    #response {
-        margin-top: 20px;
-        font-size: 15px;
-        color: #222;
-    }
+.no {
+    background: #dc3545;
+    /* REMOVE position:absolute */
+}
     
 </style>
 </head>
@@ -110,37 +93,42 @@
 <div class="overlay"></div>
     
 <div class="card">
+
+    <!-- IMAGE -->
     <img src="photo.jpg" class="card-img">
 
+    <!-- TEXT -->
     <h1>I'm Really Sorry 😔</h1>
     <p>Dhokhla… are you still naraz?</p>
 
+    <!-- BUTTONS -->
     <div class="buttons">
-        <button class="yes">No 😊</button>
-        <button class="no">Yes 😡</button>
+        <button class="yes" onclick="yesClick()">No 😊</button>
+        <button class="no" id="noBtn">Yes 😡</button>
     </div>
+
+    <!-- RESPONSE -->
+    <div id="response"></div>
+
 </div>
 
 <script>
     function yesClick() {
-        document.getElementById("response").innerText =
-            "Yay ❤️ Let's talk, I really missed you 🥺";
-    }
+    document.getElementById("response").innerText =
+        "Yay ❤️ Let's talk, I really missed you 🥺";
+}
 
-    const noBtn = document.getElementById("noBtn");
+const noBtn = document.getElementById("noBtn");
 
-    noBtn.addEventListener("touchstart", moveButton);
-    noBtn.addEventListener("click", moveButton);
+noBtn.addEventListener("click", moveButton);
+noBtn.addEventListener("touchstart", moveButton);
 
-    function moveButton() {
-        const maxX = 150;
-        const maxY = 40;
+function moveButton() {
+    const x = Math.random() * 100 - 50;
+    const y = Math.random() * 50;
 
-        const x = Math.random() * maxX;
-        const y = Math.random() * maxY;
-
-        noBtn.style.transform = `translate(${x}px, ${y}px)`;
-    }
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+}
 </script>
 
 </body>
