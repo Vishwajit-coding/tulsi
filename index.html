@@ -36,28 +36,27 @@
     }
 
    .card {
-    background: 
+        background: 
         linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)),
         url('photo.jpg');
 
-    background-size: cover;
-    background-position: center;
+        background-size: cover;
+        background-position: center;
 
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
 
-    border-radius: 25px;
-    padding: 25px;
+        border-radius: 25px;
+        padding: 25px;
     }
     .card-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
 
-    border-radius: 20px;
-    margin-bottom: 10px;
-
-    filter: brightness(0.8);
+        border-radius: 20px;
+        margin-bottom: 10px;
+        filter: brightness(0.8);
     }
 
     h1 {
@@ -102,6 +101,7 @@
         font-size: 15px;
         color: #222;
     }
+    
 </style>
 </head>
 
@@ -129,7 +129,6 @@
 
     const noBtn = document.getElementById("noBtn");
 
-    // MOBILE TOUCH SUPPORT
     noBtn.addEventListener("touchstart", moveButton);
     noBtn.addEventListener("click", moveButton);
 
