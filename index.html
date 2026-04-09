@@ -20,8 +20,6 @@
     background-repeat: no-repeat;
 }
 
-/* REMOVE overlay + body::before COMPLETELY */
-
 .card {
     width: 90%;
     max-width: 340px;
@@ -82,7 +80,15 @@ button {
 
 .no {
     background: #dc3545;
-    /* REMOVE position:absolute */
+}
+#response {
+    margin-top: 15px;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+
+    text-shadow: 0 2px 10px rgba(0,0,0,0.7); /* glow for readability */
 }
     
 </style>
@@ -94,20 +100,16 @@ button {
     
 <div class="card">
 
-    <!-- IMAGE -->
     <img src="photo.jpg" class="card-img">
 
-    <!-- TEXT -->
     <h1>I'm Really Sorry 😔</h1>
     <p>Dhokhla… are you still naraz?</p>
 
-    <!-- BUTTONS -->
     <div class="buttons">
         <button class="yes" onclick="yesClick()">No 😊</button>
         <button class="no" id="noBtn">Yes 😡</button>
     </div>
 
-    <!-- RESPONSE -->
     <div id="response"></div>
 
 </div>
